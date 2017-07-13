@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Fetch and extract the latest release version for the cli on github.
+LATEST_RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/drone/drone-cli/releases/latest)
+LATEST_VERSION=$(echo $LATEST_RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
+
+# Run the build.
+docker build \
+	--build-arg DRONE_CLI_VERSION=${DRONE_CLI_VERSION} \
+	--tag ${IMAGE_NAME}:${LATEST_VERSION} \
+	--tag ${IMAGE_NAME}:latest
