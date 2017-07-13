@@ -8,4 +8,6 @@ LATEST_VERSION=$(echo $LATEST_RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/
 docker build \
 	--build-arg DRONE_CLI_VERSION=${DRONE_CLI_VERSION} \
 	--tag ${IMAGE_NAME}:${LATEST_VERSION} \
-	--tag ${IMAGE_NAME}:latest
+	--tag ${IMAGE_NAME}:latest \
+	.
+
