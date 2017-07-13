@@ -4,6 +4,10 @@
 LATEST_RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/drone/drone-cli/releases/latest)
 LATEST_VERSION=$(echo $LATEST_RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
 
+if [ -z "${IMAGE_NAME}" ]; then
+	IMAGE_NAME=aetheric/drone-cli
+fi
+
 # Run the build.
 docker build \
 	--build-arg DRONE_CLI_VERSION=${DRONE_CLI_VERSION} \
