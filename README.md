@@ -36,4 +36,4 @@ Submit a pull request and I'll see about integrating it.
 ![MIT][2]
 
 [1]: https://github.com/drone/drone-cli/releases
-[2]: https://github.com/aetheric/docker-drone/cli/LICENSE.gif
+[2]: https://github.com/aetheric/docker-drone/cli/LICENSE
